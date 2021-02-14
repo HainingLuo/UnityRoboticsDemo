@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="yumi_app" name="yumi_app" type="yumi_app_node" output="screen">
+    </node>
+</launch>

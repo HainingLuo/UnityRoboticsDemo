@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <rosparam file="$(find unity_connection)/config/params.yaml" command="load"/>
+    <node name="server_endpoint" pkg="unity_connection" type="server_endpoint.py" args="--wait" output="screen" respawn="true" />
+
+	<group ns="yumi">
+		<group ns="left_arm">
+			<rosparam command="load" file="$(find yumi_support)/config/joint_names_left.yaml" />
+
+			<node pkg="unity_robot_client" type="joint_trajectory_action.py" name="joint_trajectory_action" output="screen"/>
+			<node pkg="topic_tools" type="relay" name="left_joints_relay" args="joint_states /yumi/joint_states"/>
+		</group>
+
+		<group ns="right_arm">
+			<rosparam command="load" file="$(find yumi_support)/config/joint_names_right.yaml" />
+
+			<node pkg="unity_robot_client" type="joint_trajectory_action.py" name="joint_trajectory_action" output="screen"/>
+			<node pkg="topic_tools" type="relay" name="right_joints_relay" args="joint_states /yumi/joint_states"/>
+		</group>
+	</group>
+
+</launch>
