@@ -1,0 +1,12 @@
+unity_ws/build
+unity_ws/devel
+unity_ws/src/ROS-TCP-Endpoint
+unity_ws/src/yumi-prl
+unity_ws/src/CMakeLists.txt
+unity_ws/.catkin_workspace
+# UnityMoveItProject/Library
+# UnityMoveItProject/Logs
+# UnityMoveItProject/UserSettings
+# UnityMoveItProject/Assembly-CSharp.csproj
+# UnityMoveItProject/UnityMoveItProject.sln
+*.vscode/

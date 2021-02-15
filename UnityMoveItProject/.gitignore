@@ -1,0 +1,9 @@
+Library
+Logs
+Temp
+UserSettings
+Packages/packages-lock.json
+Assembly-CSharp.csproj
+UnityMoveItProject.sln
+*.meta
+*.vscode/

@@ -16,7 +16,7 @@ Use Unity like Gazebo!
 If you are using Linux, you may need to Download Unity3D archive versions by:  <br>
 1. Go to the [download page](https://unity3d.com/unity/beta/2020.2.0b9) of the archive version.
 1. Right click the green button ‘install with unity hub’ to copy its link address.
-2. CD to Unity Hub directory and start Unity hub with command: `./UnityHub.AppImage <link address>`.
+1. CD to Unity Hub directory and start Unity hub with command: `./UnityHub.AppImage <link address>`.
 
 **3. Downloading this demo to your local directory** <br>
 ```
