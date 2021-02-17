@@ -3,7 +3,7 @@
 Use Unity like Gazebo!
 
 <p align="center">
-  <img src="images/unity_demo.gif" alt="animated" />
+  <img src="images/unity_demo.gif" alt="animated" width="70%"/>
 </p>
 
 ---
@@ -53,5 +53,25 @@ Don't close your terminal for now.
 
 ## Using your own robot
 ### Structure of this demo
+<p align="center">
+  <img src="images/structure.png" width="70%"/>
+</p>
+
+The package "YuMi app" is the application designed for robot YuMi. However, you can replace it with other applications using MoveIt for your own robot. Plaese refer to [MoveIt Tutorial](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/index.html) for more information. Once command `execute()` is given from MoveIt, robot trajectory will be published by MoveIt and subscribed by "Unity Robot Client", which is a simplified action server. The server then send the trajectory to Unity via "ROS TCP Endpoint".
+
+Within Unity, the "Arm Controller" is in charge of receiving arm trajectories and deploy them at each joint motor, as well as publishing joint states of corresponding arms. "Gripper Controller" does the same thing but for grippers.
 ### How to import you robot to Unity
+To import your robot, 
+
+1. Copy your robot URDF folder to "Assets" folder in the Unity Project. Note that the hierarchy can be different from the "robot_description". Check the URDF from demo project and see if your file hierachy is correct.
+2. In Untiy, click ...........
+3. Change controller properties to fit your own robot
+4. Drag your robot asset to your controller script. It will automatically find all joints connected this robot link. Note for dual arm robots, you will need two arm controllers for two arms, and make sure the link you drag to controller scripts does not contain more than one branch.
+5. Change your arm name to match the namespace of your move group.
+
 ### How to adapt the ROS package for your robot
+
+0. Have a ROS package for your robot that can work on real robots.
+1. Modify the config file under "unity_interface/unity_connection". change your arm name to match the namespace of your move group.
+
+After modifying aforementioned files, you should be able to simulate your robot in Unity!
