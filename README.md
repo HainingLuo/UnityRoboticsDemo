@@ -16,7 +16,7 @@ Forked from [Unity Robotics Hub](https://github.com/Unity-Technologies/Unity-Rob
 If you are using Linux, you may need to Download Unity3D archive versions by:
 
 1. Go to the [download page](https://unity3d.com/unity/beta/2020.2.0b9) of the archive version.
-2. Right click the green button ‘install with unity hub’ to copy its link address.
+2. Right click the green button `install with unity hub` to copy its link address.
 3. CD to Unity Hub directory and start Unity hub with command: `./UnityHub.AppImage <link address>`.
 
 **3. Downloading this demo to your local directory** <br>
@@ -27,16 +27,17 @@ If you are using Linux, you may need to Download Unity3D archive versions by:
 ## Setting up ROS workspace  <br>
 This demo uses [ABB YuMi® - IRB 14000](https://new.abb.com/products/robotics/industrial-robots/irb-14000-yumi). Executing following codes will download the ROS package for yumi and a ROS TCP Endpoint. 
 ```
-    cd unity_ws/src
+    cd UnityRoboticsDemo/unity_ws/src
     git clone https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git
     git clone https://github.com/ImperialCollegeLondon/yumi-prl
     cd yumi-prl && git checkout melodic && bash installDependencies.sh
-    cd ../..
-    cd .. && catkin_make && source devel/setup.bash
+    cd ../.. && catkin_make -DCMAKE_BUILD_TYPE=Release && source devel/setup.bash
 ```
 Don't close your terminal for now.
 ## Setting up Unity  <br>
-1. Click `ADD` on the topright of your Unity Hub window, navigate to the location of this demo and choose `UnityMoveItProject`. It may take a while for Unity to load required packages.
+1. Open your Unity Hub.
+2. Click `ADD` on the topright section of your Unity Hub window, navigate to the location of this demo, choose `UnityMoveItProject` and click `OK`.
+3. Click to open the newly `UnityMoveItProject`. It may take a while for Unity to import required packages.
 
 ## Running this demo  <br>
 0. \[Optional\] Running both RViz and Unity can be slow on some computers, you can turn off RViz by going to `/home/haining/Projects/Unity/UnityRoboticsDemo/unity_ws/src/unity_interface/unity_connection/launch` and change `<arg name="rviz" default="true" />` to `<arg name="rviz" default="false" />`
