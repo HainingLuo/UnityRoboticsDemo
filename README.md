@@ -40,18 +40,18 @@ Don't close your terminal for now.
 3. Click to open the newly `UnityMoveItProject`. It may take a while for Unity to import required packages.
 
 ## Running this demo  <br>
-0. \[Optional\] Running both RViz and Unity can be slow on some computers, you can turn off RViz by going to `/home/haining/Projects/Unity/UnityRoboticsDemo/unity_ws/src/unity_interface/unity_connection/launch` and change `<arg name="rviz" default="true" />` to `<arg name="rviz" default="false" />`
+0. \[Optional\] Running both RViz and Unity can be slow on some computers, you can turn off RViz by going to `UnityRoboticsDemo/unity_ws/src/unity_interface/unity_connection/launch` and change `<arg name="rviz" default="true" />` to `<arg name="rviz" default="false" />`
 1. Go back to your terminal, 
 ```
     roslaunch unity_connection demo_unity.launch
 ```
 2. Click the play button in Unity to start simulation.
-3. Open a new terminal from the workspace directory
+3. Open a new terminal from the workspace directory (Press Ctrl+ALt+T from your previous terminal)
 ```
     source devel/setup.bash
     roslaunch yumi_app yumi_app.launch
 ```
-4. Visualise each motion in RViz. Type in `y` and enter to execute them in Unity.
+4. Visualise each motion in RViz. Type `y` in the terminal running `yumi_app` and enter to execute them in Unity.
 
 ## Using your own robot
 ### Structure of this demo
