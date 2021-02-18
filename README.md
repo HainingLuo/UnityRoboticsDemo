@@ -64,15 +64,16 @@ Within Unity, the `Arm Controller` is in charge of receiving arm trajectories an
 ### How to import you robot to Unity
 To import your robot, 
 
-1. Copy your robot URDF folder to `Assets` folder in the Unity Project. Note that the hierarchy can be different from the `robot_description`. Check the URDF from demo project and see if your file hierachy is correct.
-2. In Untiy, click ...........
-3. Change controller properties to fit your own robot
-4. Drag your robot asset to your controller script. It will automatically find all joints connected this robot link. Note for dual arm robots, you will need two arm controllers for two arms, and make sure the link you drag to controller scripts does not contain more than one branch.
-5. Change your arm name to match the namespace of your move group.
+1. Copy your robot URDF folder to `Assets` folder in the Unity Project. Note that the hierarchy might be different from your `robot_description`. Check the URDF from demo project and see if your file hierachy is correct.
+2. In Untiy, go to `GameObject/3D Object/URDF Model (import)` navigate to your `.urdf` file and click `Open`. In the new `URDF Import Settings`, click `Import URDF`. It may take a while for Unity to load the robot model.
+3. Check Inspector properties (right side of the scene view) of your robot Game Object. Change controller parameters to fit your own robot.
+4. From the hireachy window (left side of the scene view), naviage to your robot base link, and tick the `Immovable` property of its Articulation Body component in the Inspector window.
+5. Select the `RosConnect` Object, delete previous controllers and add new controller component for your own robot. Drag your robot asset to the `Arm` slot of your controller script. The arm controller script will automatically find all revolute joints connected to this robot link. Note for dual arm robots, you will need two arm controllers for two arms, and make sure the link you drag to controller scripts does not contain more than one branch. Gripper controller, instead, finds all prismatic joints.
+6. Change the `Arm Name` and `Gripper Name` to match the namespace of your move group.
 
 ### How to adapt the ROS package for your robot
 
-0. Have a ROS package for your robot that can work on real robots.
+0. Make a ROS package for your robot that can work on real robots.
 1. Modify the config file under `unity_interface/unity_connection`. change your arm name to match the namespace of your move group.
 
-After modifying aforementioned files, you should be able to simulate your robot in Unity!
+After modifying aforementioned files, you should be able to simulate your robot in Unity! Have fun!
